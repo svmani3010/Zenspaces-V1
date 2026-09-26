@@ -1,0 +1,1924 @@
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #f3f4f6;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  width: 100%;
+  background: #fefaf6;
+  padding: 12px 0;
+
+  /* Add these 3 lines to make it sticky */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #636160;
+  transition: color 0.2s;
+}
+
+.nav-brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #404043;
+}
+
+/* ================= Home ================= */
+
+/* ================= Home ================= */
+.Home {
+  display: flex;
+  gap: 50px;
+  /* padding: 40px 5%; */
+  align-items: center;
+}
+.Home-content-background {
+  /* width: 80vw; */
+  display: flex;
+  justify-content: space-between;
+  /* align-content: center; */
+}
+
+/* LEFT */
+.Home-content {
+  flex: 1;
+  min-width: 0; /* 🔥 prevents overflow issues */
+}
+
+/* RIGHT */
+.Home-image-wrap {
+  flex: 1;
+  display: flex; /* 🔥 needed for alignment */
+  justify-content: center;
+  align-items: center;
+  min-width: 0; /* 🔥 important */
+}
+
+/* VIDEO (VERY IMPORTANT FIX) */
+.Home-room-img {
+  width: 90%; /* 🔥 FIX: makes ratio visible */
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  /* padding-left: 20px; */
+}
+
+.Home-heading {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  /* padding-right: 10px; */
+}
+
+.Home-sub {
+  font-size: 18px;
+  color: #817f85;
+  margin-bottom: 20px;
+}
+
+.Home-ctas {
+  display: flex;
+  gap: 15px; /* Increased slightly for growth room */
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Target all buttons and links inside the CTA container */
+.Home-ctas > a,
+.Home-ctas > .btn,
+.Home-ctas > .try-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
+  border-radius: 8px; /* Matches your store icons */
+}
+
+/* The Hover Effect: Growing in both directions */
+.Home-ctas > a:hover,
+.Home-ctas > .btn:hover,
+.Home-ctas > .try-now-btn:hover {
+  /* scale(1.08) provides a noticeable but professional growth */
+  transform: scale(1.02);
+
+  /* Adds a shadow to make it look lifted off the page */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+  /* Keeps the layering correct so the enlarging button stays on top */
+  z-index: 10;
+}
+
+/* Press effect */
+.Home-ctas > a:active,
+.Home-ctas > .btn:active {
+  transform: scale(0.96);
+}
+
+/* ================= Home IMAGE ================= */
+/* Wrapper (right side container) */
+
+/* Video styling */
+.Home-room-img {
+  /* width: 100%; */
+  /* max-width: 700px; 🔥 control size */
+  height: auto;
+
+  border-radius: 12px;
+  object-fit: cover; /* or 'contain' if you don’t want cropping */
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  /* padding: 10px 16px; */
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  height: 45px;
+  width: 134px;
+}
+
+.store-icon {
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  height: 45px;
+  width: 134px;
+
+  /* We use 'all' or list 'transform' to ensure both directions animate smoothly */
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Hover Effect: Uniform Enlarge (Vertical & Horizontal) */
+.store-icon:hover {
+  /* scale(1.1) grows the width and height by 10% simultaneously */
+  transform: scale(1.02);
+
+  /* A wider shadow makes the "lift" feel more natural when enlarging */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  /* Subtle brightness boost */
+  filter: brightness(1.08);
+}
+
+/* Active Effect: "Pressed" feel */
+.store-icon:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+}
+
+.btn-dark {
+  background: black;
+  color: white;
+}
+
+/* 🔥 GOLDEN GLOW LAYER */
+.try-now-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-width: 250px;
+  padding: 16px 40px;
+
+  /* Explicitly remove borders and outlines to prevent solid lines */
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  /* The blue gradient background */
+  background: linear-gradient(90deg, #425565 0%, #26a5e1 50%, #425565 100%);
+
+  /* ========================================= */
+  /* PERMANENT ORANGE GLOW                     */
+  /* X:0, Y:0, Blur: 40px (Very soft), Spread: 2px, Color: Orange */
+  /* ========================================= */
+  box-shadow: 0 0 40px 5px rgb(238, 206, 2);
+
+  /* Text Styling */
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  letter-spacing: 1.5px;
+
+  transition: all 0.3s ease;
+}
+
+.try-now-btn:hover {
+  /* ========================================= */
+  /* NORMAL HOVER EFFECT                       */
+  /* ========================================= */
+  transform: translateY(-3px); /* Natural lift upwards */
+
+  /* The shadow shifts down slightly to match the lift, staying soft */
+  box-shadow: 0 8px 40px 2px rgba(255, 165, 0, 0.7);
+}
+
+/* Optional: When the user actually clicks the button */
+.try-now-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 30px 2px rgba(255, 165, 0, 0.5);
+}
+/* Inner layout */
+.try-now-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon */
+.try-now-icon {
+  color: #ffffff;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+/* Text */
+.try-now-text {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* Rocket animation */
+.try-now-btn:hover .try-now-icon {
+  transform: translateY(-4px) rotate(-10deg);
+}
+
+/* ================= SECTION ================= */
+.section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #c8d9ee;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 18px;
+  color: #5e616d;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= UTIL ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.nav-links-left {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-links-right {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: left;
+  width: 60%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+/* 🔥 Blue line (hidden by default) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 🔥 On hover → expand line */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/*--------card container-------*/
+
+/* CARD CONTAINER */
+
+.dj-card {
+  width: 260px;
+  height: 400px;
+  perspective: 1000px; /* 🔥 enables 3D */
+}
+
+/* INNER (flipping part) */
+.dj-card-inner {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* 🔥 Flip on hover */
+.dj-card:hover .dj-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK */
+.dj-card-front,
+.dj-card-back {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+
+  backface-visibility: hidden;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FRONT */
+.dj-card-front {
+  background: white;
+}
+
+.dj-card-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* BACK */
+.dj-card-back {
+  background: #27aae1;
+  transform: rotateY(180deg);
+
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+/* padding */
+.dj-cards-padding {
+  padding-top: 40px;
+  padding-left: 190px;
+  padding-right: 190px;
+  /* padding-bottom: 200px; */
+  background-color: #a6c7e6;
+}
+
+.dj-cards-container {
+  display: flex;
+  justify-content: space-between; /* Spreads the cards out evenly */
+  gap: 20px; /* Adds space between each card */
+  width: 100%;
+}
+
+.dj-content {
+  background-color: #a6c7e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.dj-subtitle {
+  background-color: #a6c7e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.dj-hint {
+  background-color: #a6c7e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+/* 1. The Outer Light Blue Background (Your exact code!) */
+.category-pill-bg {
+  background-color: #a6c7e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* 2. The Dark Pill Shape (Your code + Slideshow necessities) */
+.category-pill {
+  /* Your Design */
+  background-color: #42403b;
+  color: white;
+  border-radius: 50px;
+  font-size: 22px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+
+  /* Slideshow Necessities */
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* This acts like a mask, hiding text as it slides left */
+
+  /* Replaced padding with fixed sizes so the pill stays rigid */
+  height: 52px;
+  width: 700px; /* You can adjust this width if the text looks too squished! */
+}
+
+/* 3. The Sliding Text Shared Styling */
+.slide-item {
+  position: absolute;
+  width: 100%;
+  padding: 0 28px; /* Your original 28px left/right padding moved here */
+  box-sizing: border-box;
+  opacity: 0;
+  white-space: nowrap; /* Prevents long text from wrapping onto a second line */
+
+  /* The 9-second loop */
+  animation: slideWipe 9s infinite;
+}
+
+/* 4. The Specific Delays */
+.item-1 {
+  animation-delay: 0s;
+}
+.item-2 {
+  animation-delay: 3s;
+}
+.item-3 {
+  animation-delay: 6s;
+}
+
+/* 5. The Corrected Animation Keyframes */
+@keyframes slideWipe {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  8% {
+    /* Wipe-in completes slightly faster to feel snappy */
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  25% {
+    /* Holds perfectly still. We explicitly lock the clip-path open here! */
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  31% {
+    /* Slides out and fades away slightly BEFORE the 3-second mark */
+    opacity: 0;
+    transform: translateX(-100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    /* Stays hidden until its next turn */
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/*-----------Trywebapp.jsx----------*/
+
+/* --- BASE & LAYOUT --- */
+
+/* Container to center everything and provide the light background */
+.cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #f4f8fb; /* Soft icy blue background from the screenshot */
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* The Glowing Banner */
+.cta-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 850px;
+  padding: 24px 40px;
+
+  /* Gradient background */
+  background: linear-gradient(90deg, #44b5e8 0%, #30a5e2 50%, #299ce0 100%);
+  border-radius: 16px;
+  cursor: pointer;
+
+  /* The prominent blue glow */
+  box-shadow: 0 15px 40px -5px rgba(54, 165, 226, 0.5);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Optional hover effect to make it feel interactive */
+.cta-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px -5px rgba(54, 165, 226, 0.6);
+}
+
+/* Banner Text */
+.cta-text {
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  /* Adds depth to the white text so it doesn't get lost in the bright blue */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+/* Sparkle Emoji Positioning */
+.cta-icon {
+  position: absolute;
+  right: 30px; /* Pins the sparkles to the far right side */
+  font-size: 24px;
+}
+
+/* The Subtext Below */
+.cta-subtext {
+  margin-top: 24px;
+  color: #4b5563; /* Medium gray */
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.trywebapp-container-bg {
+  max-height: 200vh;
+  max-width: 80vw;
+  background-color: white;
+  border-radius: 16px;
+  padding-top: 20px;
+  align-items: center;
+  justify-content: center;
+
+  position: relative; /* Required for z-index to work */
+  z-index: 10; /* Forces this box to sit in front of the background box */
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.25); /* Casts a dark shadow DOWN onto the BG box */
+}
+.trywebapp-container {
+  background-color: #f8fafc; /* Light background color matching the screenshot */
+  min-height: 155vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  padding-bottom: 50px;
+  flex-direction: column;
+  /* padding-top: 200px; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.trywebapp-container-top {
+  width: 80vw;
+  height: 30vh;
+  background-color: #f8fafc;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 16px, 0;
+  flex-direction: column;
+}
+/* --- HEADER NAVIGATION --- */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 16px 40px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 40px auto;
+  max-width: 1000px;
+  /* max-height: 500px; */
+}
+
+.unified-shadow-wrapper {
+  display: flex;
+  flex-direction: column; /* Keeps your siblings stacked perfectly */
+  max-height: 200vh;
+  max-width: 80vw;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* --- NEW LINES FOR THE OVERLAP EFFECT --- */
+}
+
+.nav-logo {
+  display: flex1;
+  align-items: left;
+  gap: 12px;
+}
+
+.logo-icon {
+  height: 50px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-text strong {
+  font-size: 16px;
+  color: #1e293b;
+  letter-spacing: 1px;
+}
+
+.logo-text span {
+  font-size: 10px;
+  color: #64748b;
+  letter-spacing: 2px;
+}
+
+.nav-downloads {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.download-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.store-badge {
+  height: 40px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 100px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 40px;
+}
+
+/* --- GRID LAYOUT --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* --- FEATURE CARDS --- */
+.feature-card {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden; /* Ensures the image doesn't break the rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-wrapper {
+  height: 220px;
+  width: 100%;
+}
+
+.card-image {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Keeps image proportions without squishing */
+}
+
+/* Container for the cards */
+.features-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* The Main Card */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 500px; /* Locked height prevents jumping */
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+}
+
+/* Image styling to ensure consistency */
+.card-image-wrapper {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 1. The Container for the image needs to hide the "overflow" */
+.card-image-wrapper {
+  height: 200px;
+  width: 100%;
+  overflow: hidden; /* 👈 This is critical: it crops the image as it grows */
+}
+
+/* 2. Initial state of the image */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Smooth transition for the zoom effect */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 3. Hover Effect: Triggered when the CARD is hovered */
+.feature-card:hover .card-image {
+  /* scale(1.1) increases the size by 10% (0.1) */
+  transform: scale(1.1);
+}
+
+/* Card Body with Flex Grow */
+.card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Fills the rest of the 500px */
+}
+
+.card-description {
+  flex-grow: 1; /* Pushes the tags and button down if text is short */
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover Effect: 3% Enlarge + Darker Shadow */
+.feature-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+/* Button styling */
+.try-now-btn-1 {
+  margin-top: auto; /* Final insurance for bottom alignment */
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.try-now-btn-1:hover {
+  background: #0056b3;
+}
+
+/* Tags styling */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag-pill {
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+}
+
+.card-description {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+/* --- TAGS / PILLS --- */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag-pill {
+  background-color: #e2e8f0;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 50px;
+}
+
+/* --- BUTTON --- */
+.try-now-btn-1 {
+  margin-top: auto; /* Forces the button to the very bottom of the card */
+  width: 100%;
+  background-color: #3b4252; /* Dark slate blue from screenshot */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.try-now-btn-1:hover {
+  background-color: #2e3440;
+}
+
+/* --- RESPONSIVE DESIGN (Optional but recommended) --- */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .top-nav {
+    flex-direction: column;
+    gap: 0px;
+    max-height: 100px;
+  }
+}
+.active-bottom-text {
+  margin-top: 24px;
+  color: #4b5563; /* Medium gray */
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+.active-bottom-text-1 {
+  color: #666; /* Muted color for the main note */
+  font-size: 22px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.blue-link {
+  color: #39b1e3; /* The "Blur" (Muted Blue) color */
+  cursor: pointer;
+  position: relative;
+  font-weight: 500;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  display: inline-block; /* Required for the transform effect */
+}
+
+/* The Underline (hidden initially) */
+.blue-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #39b1e3;
+
+  /* Start at 0 width in the center */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.blue-link:hover {
+  color: #2980b9; /* Slightly deeper blue on hover */
+  transform: scale(1.02); /* Very slight hover effect */
+}
+
+.blue-link:hover::after {
+  /* Expand to full width from center to corners */
+  transform: scaleX(1);
+}
+
+/*----------------about----------*/
+
+/* --- MAIN LAYOUT --- */
+.vision-wrapper {
+  background-color: #1a1e23; /* Dark slate background */
+  padding: 80px 20px;
+  display: flex;
+  justify-content: space-around;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.vision-content-max {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+}
+
+/* --- LEFT SIDE: CAROUSEL & IMAGE --- */
+.vision-carousel-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.image-anchor {
+  position: relative; /* CRITICAL: Allows hotspots to position themselves over the image */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.main-carousel-image {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes tiny space under image */
+  object-fit: cover;
+  justify-content: left;
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3b9ac6; /* Blue from screenshot */
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s;
+}
+
+.carousel-arrow:hover {
+  background-color: #2b7a9e;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+/* --- HOTSPOTS (The Red Buttons) --- */
+.hotspot-container {
+  position: absolute; /* Positions based on the inline style top/left percentages */
+  z-index: 20;
+}
+
+.hotspot-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ef4444; /* Red color */
+  color: white;
+  border: 2px solid white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centers the button perfectly on its coordinates */
+  transition: transform 0.2s;
+}
+
+.hotspot-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- TOOLTIP POPUP --- */
+.hotspot-tooltip {
+  position: absolute;
+  top: 100%; /* Puts tooltip right below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  /* Hidden by default, toggled by React State */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 30;
+}
+
+.hotspot-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hotspot-tooltip h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.hotspot-tooltip p {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* --- RIGHT SIDE: TEXT --- */
+.vision-text-area {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.vision-subtitle {
+  color: #38bdf8; /* Light blue */
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.vision-title {
+  color: white;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.vision-description {
+  color: #94a3b8; /* Light gray text */
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 900px) {
+  .vision-content-max {
+    flex-direction: column;
+  }
+  .vision-text-area {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+
+/* --- CAROUSEL INDICATORS --- */
+.carousel-indicators {
+  position: absolute;
+  bottom: 16px; /* Sits just above the bottom edge of the image */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the dots perfectly */
+  display: flex;
+  gap: 10px;
+  z-index: 15;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Semi-transparent white by default */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.indicator-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.indicator-dot.active {
+  background-color: #38bdf8; /* The requested bright blue color */
+  transform: scale(1.3); /* Makes the active dot slightly larger */
+}
+
+/*-----------------Howitworks----------*/
+/* Basic styling to create a clean layout that matches the image */
+:root {
+  --zenspaces-blue: #0a1930;
+  --zenspaces-light-blue: #3ebcf4;
+  --zenspaces-white: #ffffff;
+}
+
+.how-it-works {
+  background-color: var(--zenspaces-blue);
+  color: var(--zenspaces-white);
+  padding: 80px 20px;
+  text-align: center;
+  font-family: sans-serif; /* Replace with your primary web font */
+}
+
+.how-it-works__title {
+  font-size: 36px;
+  margin-bottom: 60px;
+  color: var(--zenspaces-white);
+}
+
+.how-it-works__steps-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.how-it-works__step {
+  flex: 1;
+  padding: 0 10px;
+  max-width: 280px;
+}
+
+.how-it-works__icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.how-it-works__icon {
+  background-color: var(--zenspaces-white);
+  color: var(--zenspaces-light-blue);
+  width: 80px;
+  height: 80px;
+  border-radius: 8px; /* Slight rounding on the white box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Ensures icon is above the line */
+}
+
+/* Connectors (dotted lines) */
+/* Container */
+.how-it-works__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 0; /* Important: no manual gap needed */
+}
+
+/* Each item */
+.how-it-works__item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+/* Circle (step indicator) */
+.how-it-works__circle {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: #4f46e5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Connector line */
+.how-it-works__connector-wrapper {
+  position: absolute;
+  top: 40px; /* vertically aligned with circle center */
+  left: 50%;
+  right: -50%;
+  height: 2px;
+  background: #ccc;
+  z-index: 0;
+}
+
+/* Remove connector from last item */
+.how-it-works__item:last-child .how-it-works__connector-wrapper {
+  display: none;
+}
+
+.how-it-works__connector {
+  border-top: 2px dotted rgba(255, 255, 255, 0.4); /* Dotted white line */
+  width: 100%;
+}
+
+.how-it-works__label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--zenspaces-white);
+}
+
+.how-it-works__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly dimmed white text for readability */
+}
+
+/* Simple responsiveness for narrow screens */
+@media (max-width: 768px) {
+  .how-it-works__steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .how-it-works__step {
+    max-width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .how-it-works__icon-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .how-it-works__connector-wrapper {
+    display: none; /* Hide connectors on mobile stacking */
+  }
+}
+
+/* --------------Soulution---------- */
+
+/* Container styling */
+.solutions-container {
+  padding: 40px 20px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background-color: #f4f6f8; /* Light gray background from the image */
+  max-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.solutions-title {
+  color: #333;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Flexbox wrapper to align cards side by side */
+.cards-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Individual Card Styling */
+.solution-card {
+  flex: 1;
+  background-color: #f8f9fa; /* Slightly off-white background */
+  border: 1px solid #2cb1e1; /* The blue border */
+  border-radius: 4px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth transition for the hover effect */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon base styling */
+.card-icon {
+  color: #2cb1e1; /* Blue icon by default */
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Title base styling */
+.card-title {
+  color: #444;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Description base styling */
+.card-description {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* ========================================= */
+/* HOVER EFFECTS                             */
+/* ========================================= */
+
+.solution-card:hover {
+  background-color: #2cb1e1; /* Fills the card with blue */
+  transform: translateY(-2px); /* Optional: slight lift effect */
+  box-shadow: 0 10px 20px rgba(44, 177, 225, 0.2);
+}
+
+.solution-card:hover .card-icon,
+.solution-card:hover .card-title,
+.solution-card:hover .card-description {
+  color: #ffffff; /* Changes icon, title, and text to white */
+}
+
+/* --------------------------------blogs--------------------- */
+
+/* Container & Header Styling */
+.blogs-container {
+  padding: 60px 20px;
+  padding-top: 100px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogs-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.blogs-title {
+  color: #333;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.blogs-subtitle {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* Card Wrapper */
+.blogs-wrapper {
+  display: flex;
+  justify-content: flex-start; /* Align to start, adjust if you add more cards */
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Individual Card Styling */
+.blog-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image Container */
+.blog-image-container {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+/* Overlay to darken image behind text */
+.blog-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+  z-index: 1;
+}
+
+/* Image Text & Badges (Need higher z-index to sit above overlay) */
+.blog-date-badge,
+.blog-image-text,
+.blog-category-badge {
+  position: relative;
+  z-index: 2;
+}
+
+.blog-date-badge {
+  background: linear-gradient(
+    135deg,
+    #4da1ff,
+    #5144ff
+  ); /* Blue/Purple gradient */
+  color: white;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.blog-image-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 30px;
+}
+
+.blog-category-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: #333;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+/* Content Area Below Image */
+.blog-content {
+  padding: 25px 0; /* Padding left/right is 0 to match screenshot design */
+}
+
+.blog-post-title {
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.blog-post-description {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.blog-read-more {
+  display: inline-flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.read-more-icon {
+  color: #2cb1e1; /* Light blue icon */
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
+
+.blog-read-more:hover {
+  color: #2cb1e1;
+}
+
+.blog-read-more:hover .read-more-icon {
+  transform: translateX(4px); /* Moves arrow slightly right on hover */
+}
+
+/* ----------------contactus-------------- */
+
+/* --- GLOBAL CONFIG --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevents Navbar from overlapping section titles when jumping via links */
+#home,
+#zenjourney,
+#trywebapp,
+#about,
+#howitworks,
+#solutions,
+#blogs,
+#contact {
+  scroll-margin-top: 80px;
+}
+
+/* --- CONTACT WRAPPER --- */
+.contact-wrapper {
+  background-color: #f8fafc;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 450px;
+  position: relative; /* Context for sticky button */
+}
+
+.contact-content {
+  flex: 1;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-title {
+  color: #1e293b;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.contact-cards-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- CONTACT CARDS --- */
+.contact-card {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 24px 30px;
+  min-width: 320px;
+  border-left: 5px solid #28a8ea;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-left-width 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 20px 35px rgba(40, 168, 234, 0.15),
+    0 15px 30px rgba(0, 0, 0, 0.1);
+  border-left-width: 8px;
+}
+
+.contact-card:active {
+  transform: scale(0.98);
+}
+
+.icon-circle {
+  background-color: #28a8ea;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.card-text h3 {
+  margin: 0 0 6px 0;
+  color: #334155;
+  font-size: 18px;
+}
+
+.card-text p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.try-now-btn-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 5px rgba(255, 165, 0, 0.8);
+}
+
+/* --- FOOTER SECTION --- */
+/* --- FOOTER LAYOUT --- */
+.contact-footer {
+  background-color: #474b4f;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.footer-center {
+  flex: 2; /* Gives the text more room while staying centered */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-spacer,
+.footer-right {
+  flex: 1;
+}
+
+.footer-links {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #7dd3fc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  color: #94a3b8;
+  margin: 0 12px;
+}
+
+.copyright {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.footer-right {
+  flex: 1; /* Both must be exactly 1 to take up equal space */
+  display: flex;
+  justify-content: center; /* Pushes any content inside the right box to the edge */
+}
+
+.try-now-btn-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 140px;
+  padding: 20px 16px;
+  border: none;
+  border-radius: 36px;
+  cursor: pointer;
+  background: rgba(37, 198, 230, 0.8);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  /* ADJUST OPACITY HERE */
+  --pulse-opacity: 0.6;
+  --pulse-color: rgba(37, 198, 230, var(--pulse-opacity));
+}
+
+/* The "Permanent" Expanding Rectangle */
+.try-now-btn-2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 36px;
+  border: 4px solid var(--pulse-color);
+  pointer-events: none;
+
+  /* ADDED: This makes the animation run forever from the start */
+  animation: pulse-rect-permanent 2s infinite ease-out;
+}
+
+/* Hover effect for the button itself */
+.try-now-btn-2:hover {
+  transform: translateY(-5px);
+  background: rgba(37, 198, 230, 1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Permanent Keyframes */
+@keyframes pulse-rect-permanent {
+  0% {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 36px;
+    opacity: 0;
+  }
+  20% {
+    /* Line appears and starts turning into a rectangle */
+    opacity: var(--pulse-opacity);
+    border-radius: 1px;
+  }
+  100% {
+    /* Expands 10px and fades out */
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 5px;
+    opacity: 0;
+  }
+}
+
+.try-now-btn-2:active {
+  transform: translateY(-2px) scale(0.98);
+}

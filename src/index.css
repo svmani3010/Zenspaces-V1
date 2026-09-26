@@ -1,0 +1,26 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Override Codia's auto-generated layout wrappers to allow sticky elements */
+[data-codia-role="app_shell"],
+[data-codia-role="scroll_content"] {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  height: auto !important;
+}
